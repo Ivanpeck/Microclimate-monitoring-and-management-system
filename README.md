@@ -3,7 +3,7 @@
 ВНИМАНИЕ: Проект не был завершен, и всвязи с этим не доработан до рабочего состояния. Но тем не менее прототип основного функционала разработан.
 
 
-Эта  <br />система предназначена для автоматического сбора данных с датчиков через протокол Modbus TCP, их сохранения в базу данных PostgreSQL, визуализации, анализа и автоматического управления исполнительными механизмами (заслонками) для поддержания оптимальных параметров микроклимата в производственном помещении. Веб-интерфейс реализован на Streamlit.
+Эта система предназначена для автоматического сбора данных с датчиков через протокол Modbus TCP, их сохранения в базу данных PostgreSQL, визуализации, анализа и автоматического управления исполнительными механизмами (заслонками) для поддержания оптимальных параметров микроклимата в производственном помещении. Веб-интерфейс реализован на Streamlit.
 
 ## Основные функции
 Сбор данных: Автоматическое чтение данных с ПЛК (Программируемого Логического Контроллера) по протоколу Modbus TCP.
@@ -23,13 +23,13 @@
 ## Структура проекта
 text
 ваш-проект/
-├── init.py                 # Приложение А: Основные алгоритмы и функции
-├── run_app.py             # Приложение Б: Веб-приложение на Streamlit
-├── config.json            # Приложение В: Файл конфигурации
-├── requirements.txt       # Список зависимостей (нужно создать)
-├── report template.htm    # Шаблон для генерации отчетов
-├── report template.files/ # Папка с ресурсами для шаблона (CSS, изображения)
-├── quality_data.csv       # Файл с историческими данными о качестве продукции
+├── init.py                 # Приложение А: Основные алгоритмы и функции <br />
+├── run_app.py             # Приложение Б: Веб-приложение на Streamlit <br />
+├── config.json            # Приложение В: Файл конфигурации <br />
+├── requirements.txt       # Список зависимостей (нужно создать) <br />
+├── report template.htm    # Шаблон для генерации отчетов <br />
+├── report template.files/ # Папка с ресурсами для шаблона (CSS, изображения) <br />
+├── quality_data.csv       # Файл с историческими данными о качестве продукции <br />
 └── README.md              # Этот файл
 ## Предварительные требования
 Python: Установите Python 3.8 или новее.
@@ -45,25 +45,25 @@ PostgreSQL: Установите и запустите сервер PostgreSQL. 
 
 Создайте виртуальное окружение (рекомендуется):
 
-bash
-python -m venv venv
-source venv/bin/activate  # Для Linux/MacOS
-venv\Scripts\activate     # Для Windows
+bash <br />
+python -m venv venv <br />
+source venv/bin/activate  # Для Linux/MacOS <br />
+venv\Scripts\activate     # Для Windows <br />
 Установите зависимости: Создайте файл requirements.txt со следующим содержимым:
 
-txt
-pymodbus==3.2.0
-psycopg2-binary==2.9.7
-streamlit==1.28.0
-pandas==2.0.3
-matplotlib==3.7.2
-scikit-learn==1.3.0
-beautifulsoup4==4.12.2
-seaborn==0.12.2
+txt <br />
+pymodbus==3.2.0 <br />
+psycopg2-binary==2.9.7 <br />
+streamlit==1.28.0 <br />
+pandas==2.0.3 <br />
+matplotlib==3.7.2 <br />
+scikit-learn==1.3.0 <br />
+beautifulsoup4==4.12.2 <br />
+seaborn==0.12.2 <br />
 Установите их командой:
 
-bash
-pip install -r requirements.txt
+bash <br />
+pip install -r requirements.txt <br />
 Настройте config.json:
 
 Заполните параметры подключения к вашей базе данных PostgreSQL (dbname, user, password, host, port).
@@ -76,18 +76,18 @@ pip install -r requirements.txt
 
 Пример заполнения для нескольких параметров:
 
-json
-{
-  "dbname": "climate_db",
-  "user": "postgres",
-  "password": "mysecretpassword",
-  "host": "localhost",
-  "port": 5432,
-  "IP_PLC": "192.168.1.100",
-  "temp_1": 100,
-  "temp_1_limits": [20.5, 25.0],
-  ...
-}
+json <br />
+{ <br />
+  "dbname": "climate_db", <br />
+  "user": "postgres", <br />
+  "password": "mysecretpassword", <br />
+  "host": "localhost", <br />
+  "port": 5432, <br />
+  "IP_PLC": "192.168.1.100", <br />
+  "temp_1": 100, <br />
+  "temp_1_limits": [20.5, 25.0], <br />
+  ... <br />
+} <br />
 Подготовьте базу данных: Запустите SQL-скрипт для создания таблицы sensor_data. Структура таблицы должна соответствовать списку параметров в функции from_plc_to_sql() (столбцы temp_1, humidity_1, ..., created_at (должен быть с типом TIMESTAMP и значением по умолчанию CURRENT_TIMESTAMP).
 
 Подготовьте данные о качестве: Заполните файл quality_data.csv историческими данными для обучения модели прогнозирования брака. Файл должен содержать колонки date, marriage (доля брака), а также колонки для типов изделий и цветов.
@@ -97,8 +97,8 @@ json
 
 Запустите Streamlit-приложение:
 
-bash
-streamlit run run_app.py
+bash <br />
+streamlit run run_app.py <br />
 Приложение автоматически откроется в вашем браузере по адресу http://localhost:8501.
 
 ## Использование

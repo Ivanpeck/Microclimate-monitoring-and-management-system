@@ -48,7 +48,6 @@ PostgreSQL: Установите и запустите сервер PostgreSQL. 
 bash
 python -m venv venv
 source venv/bin/activate  # Для Linux/MacOS
-# или
 venv\Scripts\activate     # Для Windows
 Установите зависимости: Создайте файл requirements.txt со следующим содержимым:
 
